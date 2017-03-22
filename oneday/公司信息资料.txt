@@ -1,0 +1,561 @@
+\\172.26.9.5\公共组
+
+magento项目配置，把media和skin复制到项目的根路径下，
+后台地址：
+http://www.magento.net/index.php/admin/dashboard/index/key/d39ae6745b4f430aac828e600e4486af/
+后台在sys->cache manage->action disabled subimit
+
+账号：admin
+密码：admin123
+
+前台地址：
+http://www.magento.net/index.php/
+
+
+hellokeykey的博客  和csdn上面阿水的博客  
+
+mysql 命令行登录
+切换到mysql/bin下
+mysql -uroot -proot
+use mysql
+导入sql文件
+source sql绝对路径
+
+公司邮箱：
+http://exmail.qq.com  邮箱：	shixiaomei@jeulia.net   密码：0609064034@Sxm
+
+
+本地测试订单 & 测试环境测试订单的时候
+一定把ERP同步关见桌面图
+Enabled改成NO
+www.amarley.com
+61.134.1.4
+
+设置方法：http://jingyan.baidu.com/article/fcb5aff7e65a70edab4a7176.html
+
+teambition 
+账号：15982898986
+密码：0609064034
+
+
+X-Request-ID
+
+host: 172.26.9.5
+user: root
+pass: 111111
+database: jeulia_co_uk
+
+ssh://root@172.26.9.5/data2/git/jeulia.co.uk.git
+password: oneday2016
+
+所有网站均搭建了对应测试环境，对应网址把www.xxx.com替换成sandbox.xxx.com即可，比如：
+正式环境：www.jeulia.com
+测试环境：sandbox.jeulia.com
+
+正式环境：www.gnoce.com
+测试环境：sandbox.gnoce.com
+
+正式环境：www.amarley.com
+测试环境：sandbox.amarley.com
+
+http://sandbox.jeulia.co.za/ 南非站地址
+
+其他jeulia分站测试环境访问网址依次类推
+
+注意：
+1、原有oneday测试网址已经删除
+2、所有测试环境对外均无法访问
+3、访问方法参加：\\172.26.9.5\公共组\开发组\操作指南\onedayput.jeulia.com-访问方法.docx
+4、测试环境后台登陆网址形如：sandbox.xxx.com/oneday
+5、测试环境后台登陆账号密码与正式环境账号密码无异
+6、请各网站负责人
+在测试环境后台将paypal、信用卡、affirm等设置为对应测试账号
+7、关闭ERP订单同步功能
+8、测试网站上做的任意操作，不会影响到其对应正式网站
+
+Zend_Debug::dump($this->getLayout()->getUpdate()->getHandles());
+
+https://magento2.atlassian.net/wiki/display/m1wiki/Magento+1.x+Wiki
+
+https://magento2.atlassian.net/wiki/display/m1wiki/How-t
+
+SET FOREIGN_KEY_CHECKS=0; UPDATE `core_store` SET store_id = 0 WHERE code='admin'; UPDATE `core_store_group` SET group_id = 0 WHERE name='Default'; UPDATE `core_website` SET website_id = 0 WHERE code='admin'; UPDATE `customer_group` SET customer_group_id = 0 WHERE customer_group_code='NOT LOGGED IN'; SET FOREIGN_KEY_CHECKS=1;
+
+
+http://www.open-open.com/lib/view/open1427793431990.html
+
+http://windows.php.net/downloads/pecl/releases/
+
+本地连接正常时，打不开部分网页的解决办法：
+本地连接右键----打开网络和共享中心---更改适配器设置-----
+本地连接---右键属性-----属性----双击TCP/IPV4---高级----
+DNS---附加主DNS和在DNS注册这两项的勾去掉   点确定就好了
+
+所有测试网站后台账号 & 密码:
+sandbox
+sandbox123
+
+http://www.cnblogs.com/magento/p/3436119.html
+
+
+
+开发流程：
+1、【新需求】（张昭分配给具体人），比如【任务1】分配给马少青，马少青看到【任务1】以后，马少青如果当前手头没有其他任务（或者任务优先级），把分配给他的具体任务拖动到开发中
+2、【开发中】，马少青完成【任务1】后，把【任务1】拖动到【测试环境待部署】
+3、【测试环境待部署】，张昭把【任务1】部署到测试环境 & 拖【任务1】到【待测试】
+4、【待测试】，马少青测试（可能还有其他人测试）【任务1】，测试通过后，拖动【任务1】到【待部署】
+5、【待部署】，张昭发布【任务1】到线上生产环境 & 拖动【任务1】到【已发布】
+6、【任务1】结束
+
+注意：
+1、步骤4【待测试】测试没有通过，请拖任务到步骤2【开发中】，继续循环之前2、3、4步骤
+2、整个环境teambition会有自动提醒，不用刻意用即时聊天工具告知相关人员
+3、关于项目的沟通交流最好在teambition上进行，以方便项目的备录
+
+DNS访问不了的问题：
+https://netfits.io/, 受不了公司网的，赶紧下载win客户端，能有效解决DNS找不到问题。大家自行购买流量，我给大家微信红包
+
+
+南非站
+
+http://www.cnblogs.com/afish/p/3996073.html
+
+http://sandbox.jeulia.com/checkout/onepage/success/
+
+6771902692556393, CVV, 657, 02/2021
+·  6771178206145730, CVV, 788, 04/2020
+ 
+这是一个真实客户的地址和电话：姓名可以随意写
+9 Kamiemie Street
+Kathu, Northern Cape, 8446
+South Africa
+T: 0761362073
+
+
+<CREDITCARDNUMBER>4263982640269299</CREDITCARDNUMBER>
+
+<EXPIRYDATE>0218</EXPIRYDATE>
+
+<CVV>321</CVV>
+
+git add -u：将文件的修改、文件的删除，添加到暂存区。
+git add .：将文件的修改，文件的新建，添加到暂存区。
+git add -A：将文件的修改，文件的删除，文件的新建，添加到暂存区。
+
+http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000  
+
+paypal支付账号
+809176934-buyer@qq.com 、密码sandbox2015
+
+推送代码的命令
+ git push origin shixioamei_dev:master
+ 
+ $o =  Mage::getSingleton('core/session');
+        $o->setLastOrderUnpay($order_id);
+        $last = $o->getLastOrderUnpay(); 设置session
+
+  $o =  Mage::getSingleton('checkout/session');
+        $o->setLastOrderUnpay($order_id);
+        $last = $o->getLastOrderUnpay(); 
+		
+			$storeId    = Mage::app()->getStore()->getId();       
+
+		$products = Mage::getResourceModel('catalog/product_collection')
+			->addAttributeToSelect('*')
+			->setStoreId($storeId)
+			->addStoreFilter($storeId)
+			->setOrder('price', 'asc')
+			->addAttributeToFilter('is_bundle', '1');
+		
+			$query=$products->getSelectSql(true);
+			
+http://www.linuxeden.com/html/news/20170105/167626.html
+
+
+4539622877061203, CVV2, 776, 04/20
+4539640457817471, CVV2, 201, 08/19
+4929411446633215, CVV2, 557, 07/22
+4556137938957867, CVV2, 757, 04/20
+4485567656140203, CVV2, 717, 12/20
+4024007136192464, CVV2, 602, 04/20
+4929061212416855, CVV2, 478, 07/19
+4532442144992305, CVV2, 416, 09/19
+4024007196853070, CVV2, 283, 09/19
+4024007191080323, CVV2, 827, 11/21
+4485165918098721, CVV2, 281, 01/21
+4532971181769838, CVV2, 043, 10/20
+4916007308476548, CVV2, 983, 04/20
+4024007176104098, CVV2, 358, 09/19
+4539315881325850, CVV2, 053, 09/21
+4532411391480496, CVV2, 540, 06/22
+4916198613212684, CVV2, 186, 07/20
+4929753622659583, CVV2, 143, 10/20
+4142963907846505, CVV2, 039, 11/21
+4532610503529765, CVV2, 072, 05/19
+
+UK:
+Shipping Address:
+xiaomei shi
+Unit 14 3 Edgar Buildings
+Bath, England, 8664
+United Kingdom
+T: 0761362073
+
+pay@jeulia.co.uk
+
+ZA:
+809176934-facilitator@qq.com
+
+UK:
+
+Email Associated with PayPal Merchant Account:
+
+809176934-facilitator@qq.com
+
+api username:
+809176934-facilitator_api1.qq.com
+
+隐藏API密码:
+P3QRKEX5KQYN9LTA
+
+隐藏签名:
+AFcWxV21C7fd0v3bYYYRCpSSRl31ADSbhZVlUZa17C19aPX1QroIZeRD
+
+\\172.26.9.5\公共组\公司ip地址配置.xls
+把自己的职位和部门填写完整。以便网管快速管理
+
+magento接入新的支付方法的步骤：
+http://www.magikcommerce.com/blog/adding-new-payment-module-in-magento/
+magento写shell目录下的步骤
+https://www.cloudways.com/blog/php-shell-scripts-magento/
+
+
+http://54.249.4.134/api/api/sync-order
+jeuliacoza2016
+jeuliacoza2016
+
+已经关的ERP：
+http://sandbox.jeulia.co.uk/
+http://sandbox.jeulia.co.za/
+http://sandbox.amarley.com/
+http://sandbox.jeulia.com/
+http://sandbox.jeulia.ae/
+http://sandbox.jeulia.it/
+http://sandbox.jeulia.cl/
+http://www.gnoce.com/
+
+
+
+
+标题：Did You Forget Something?
+发邮件的时间大概是在下单后30分钟
+
+
+aws.jeulia.it
+
+No. 8 Via Santa Maria dell'animaon
+Roma
+Italia
+00186
+
+
+?utm_source=facebook&utm_medium=fcppc-LT-Mail
+uni
+http://sandbox.jeulia.it/
+
+公司代码
+\\172.26.9.5\开发组
+
+我的gmail邮箱：
+shixiaomei87@gmail.com
+密码：0609064034
+我的facebook账号：
+15982898986
+密码：0609064034
+GC的账号和密码：
+404599132@qq.com
+密码:0609064034@Sxm
+
+
+
+请各自把自己手头分站补丁包打上去
+\\172.26.9.5\开发组\magento-patch\SUPEE-9652
+
+phantomjs.exe
+https://github.com/digitalbazaar/forge
+
+9.6 12.53
+
+未经本人允许请不要尝试登录
+87shixiaomei
+
+虚拟机密码：
+shixiaomei
+
+
+http://www.coza.dev/engagement-rings.html
+paypal支付最新接口
+https://developer.paypal.com/docs/classic/api/merchant/DoExpressCheckoutPayment_API_Operation_NVP/
+
+
+新GC支付方式的demo测试卡
+
+$card = new Card();
+$card->cvv = "123";
+$card->cardNumber = "4567350000427977";
+$card->expiryDate = "1220";
+$card->cardholderName = "Wile E. Coyote";
+
+Ndaiziwei Patience Nhunzvi
+76 Rotherfield Road Plumstead
+
+https://developer.globalcollect.com/documentation/testcases/  这里面现在是部分卡能用 部分卡不能用
+
+http://www.windeln.de/ 学习网站
+
+
+生产环境的南非统计：配置项位置：design->HEML Head->Miscellaneous Scripts
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58903239-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+生产环境的英国统计：配置项位置：design->HEML Head->Miscellaneous Scripts
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58903239-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+生产环境美国站：配置项位置：design->HEML Head->Miscellaneous Scripts
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58903239-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+生产环境南非移动端：
+<!-- Google Analytics -->
+<script type="text/javascript">// <![CDATA[
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58903239-1', 'auto');
+  ga('send', 'pageview');
+// ]]></script>
+<!-- Facebook Conversion Code for MOB-Adds to Cart -->
+<script type="text/javascript">// <![CDATA[
+(function() {
+var _fbq = window._fbq || (window._fbq = []);
+if (!_fbq.loaded) {
+var fbds = document.createElement('script');
+fbds.async = true;
+fbds.src = '//connect.facebook.net/en_US/fbds.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(fbds, s);
+_fbq.loaded = true;
+}
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6023729004964', {'value':'0.00','currency':'USD'}]);
+// ]]></script>
+<noscript>&amp;amp;amp;amp;amp;amp;amp;lt;img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023729004964&amp;amp;amp;amp;amp;amp;amp;amp;amp;cd[value]=0.00&amp;amp;amp;amp;amp;amp;amp;amp;amp;cd[currency]=USD&amp;amp;amp;amp;amp;amp;amp;amp;amp;noscript=1" /&amp;amp;amp;amp;amp;amp;amp;gt;</noscript><!-- Pinterest Conversion Code for Adds to Cart -->
+<p><img src="https://ct.pinterest.com/?tid=FemfIsYH3Tw" alt="" width="1" height="1" /></p>
+
+新GC与发布测试卡：
+
+4567350000427977 1220 123
+
+4012000033330026  1220  123
+
+
+共享盘账号 & 密码
+dev
+111111
+
+南非参考站：
+http://www.getthis.co.za/
+https://www.zasttra.com/
+
+https://www.zhihu.com/question/27346343
+
+GTM+GA
+
+tagmanager.google.com
+https://accounts.google.com/ServiceLogin?service=tagmanager&passive=1209600&continue=https://tagmanager.google.com/&followup=https://tagmanager.google.com/#identifier
+
+
+https://analytics.google.com/analytics/web/?authuser=0#management/Settings/a93007707w137604510p141877610/%3Fm.page%3DTrackingCode%26_r.ghFlowId%3D6324039/
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-93007707-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+https://developers.google.com/tag-manager/devguide
+
+https://tagmanager.google.com/#/container/accounts/1182067348/containers/6450466/workspaces/1/variables
+
+<script>
+dataLayer = [];
+dataLayer.push({
+  'ecommerce': {
+    'currencyCode': 'EUR',                       // Local currency is optional.
+    'impressions': [
+     {
+       'name': 'Triblend Android T-Shirt',       // Name or ID is required.
+       'id': '12345',
+       'price': '15.25',
+       'brand': 'Google',
+       'category': 'Apparel',
+       'variant': 'Gray',
+       'list': 'Search Results',
+       'position': 1
+     },
+     {
+       'name': 'Donut Friday Scented T-Shirt',
+       'id': '67890',
+       'price': '33.75',
+       'brand': 'Google',
+       'category': 'Apparel',
+       'variant': 'Black',
+       'list': 'Search Results',
+       'position': 2
+     }]
+  }
+});
+</script>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+	<iframe src="//www.googletagmanager.com/ns.html?id=GTM-N3XTCGQ" height="0" width="0" style="display:none;visibility:hidden">
+	</iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-N3XTCGQ');
+</script>
+<!-- End Google Tag Manager -->
+
+
+  ga('send', 'pageview');
+  
+  
+   public function getEcommerceProductOneScript($product,$position)
+    {
+        $sort = !empty($this->getRequest()->getParam('order')) ? $this->getRequest()->getParam('order') : Mage::getStoreConfig('catalog/frontend/default_sort_by');
+        $_newproduct['category'] = addslashes($product->getCategory()->getName());// 产品所属的类目。可以使用 / 作为分隔符来指定多个层级（例如Wedding/Wedding Sets/3PC Sets).
+        $_newproduct['list'] = 'category - ' . $_newproduct['category'] . ' - ' . $sort; // 产品所在的列表或集合（如果是类目页，就是：category-所属类目-排序方式，如果是搜索页，为：search-搜索词-排序方式）
+        $_newproduct['name'] = addslashes($product->getName());
+        $_newproduct['id'] = $product->getSku();
+        $_newproduct['sku'] = $product->getSku();
+        $_newproduct['brand'] = 'Jeulia';
+        $_newproduct['position'] = $position;
+        $productlocationUrl = $product->getProductUrl();
+        $eventCallbacklocationArr = pathinfo($productlocationUrl);
+        $eventCallbacklocationUrl = '/'.$eventCallbacklocationArr['basename'];
+        $_newproduct['productlocationurl'] = $productlocationUrl;
+        $_newproduct['eventcallbacklocationurl'] = $eventCallbacklocationUrl;
+        return $scriptStr =  ' onclick = "gtmDlClick('.json_encode($_newproduct).');"';
+    }
+
+
+
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+	<iframe src="//www.googletagmanager.com/ns.html?id=GTM-N3XTCGQ" height="0" width="0" style="display:none;visibility:hidden">
+	</iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-N3XTCGQ');
+</script>
+<!-- End Google Tag Manager -->
+
+enhancedecommerce DEMO
+https://enhancedecommerce.appspot.com/
+
+https://analytics.googleblog.com/2016/10/improvements-coming-to-google-analytics.html
+
+http://jingyan.baidu.com/article/54b6b9c09141262d583b47b0.html
+
+tagmanager资料：
+http://wenku.baidu.com/link?url=JoCCb9p1NRKwqRvDVcLaNm6syFhble366GSdiGb_j_zomPh9uQwH0kPNT6C7U_lGtWU5BXhsNV7jllZYimBgK9iEAvuZOjWFXoHaICgeVGuyM-Z_GM40oZTktTw7HYeV
+
+http://www.blastam.com/blog/ga-multi-currency-support
+
+https://www.optimizesmart.com/understanding-enhanced-ecommerce-tracking-universal-analytics/
+
+!!!!!!!!!!!!!!!!!
+http://flintanalytics.com/installing-enhanced-ecommerce-using-google-tag-manager-and-the-data-layer/#section-4
+http://flintanalytics.com/installing-enhanced-ecommerce-using-google-tag-manager-and-the-data-layer/#section-4
+
+http://flintanalytics.com/installing-enhanced-ecommerce-using-google-tag-manager-and-the-data-layer/
+
+
+https://campaigntail.com/Blog/Ultimate-Guide-Custom-Dimensions-Metrics-Google-Analytics
+http://www.tuicool.com/articles/iUZ7ni7
+
+
+http://www.tatvic.com/blog/enhanced-ecommerce/#steps
+
+
+https://www.optimizesmart.com/enhanced-ecommerce-tracking-via-google-tag-manager/
+https://support.google.com/analytics/answer/6014418?hl=en&ref_topic=6014102(如何创建PC和移动端的视图)
+
+
+UA-58903239-11
+
+echo  Mage::getSingleton('core/design_package')->getPackageName();
+echo Mage::getSingleton('core/design_package')->getTheme('frontend');
+
+
+https://service.jeulia.co.za/resource.php?t=js&1=jscript/jsglobal.min.js&2=jscript/jsbox.min.js&3=jscript/jstrack.min.js&4=overlays/chatv2/jscript/jsextern.min.js
+
+主题切换：
+MAG090181
+green0308
+
+参考站（刘祥推荐）
+www.schonekleider.de
+
+
+

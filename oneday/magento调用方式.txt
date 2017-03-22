@@ -1,0 +1,305 @@
+magento中调用图片的方法 (2010-08-15 23:25:28)转载▼
+标签： magento图片 图片路径 调用图片 新建图片块 杂谈	分类： magento
+   在magento中我们有的时候需要调用图片。我们可以通过几种方式来调用它们，他可以分成几种情况：
+1.是在phtml页面中，也就是模板文件中，
+http://example.com/helloworld/index/index?showLayout=page
+https://www.douban.com/note/533840353/
+在phtml中调用
+    可以使用<?php echo $this->getskinurl('images/图片名') ?>
+
+  或者是在xml中，
+<reference name="right">
+            <block type="catalog/product_compare_sidebar" before="cart_sidebar" name="catalog.compare.sidebar" template="catalog/product/compare/sidebar.phtml"/>
+            <block type="core/template" name="right.permanent.callout" template="callouts/right_col.phtml">
+                <action method="setImgSrc"><src>images/图片名</src></action>
+                <action method="setImgAlt" translate="alt" module="catalog"><alt>Keep your eyes open for our special Back to School items and save A LOT!</alt></action>
+            </block>
+</reference>
+
+这里有设置相应的模板文件，和模板文件出现在的位置，还有就是图片的路径。我们可以通过在模板文件中使用
+<?php echo $this->getSkinUrl($this->getImgSrc()) ?>来获得图片的路径。当然这样设置是很麻烦，一般如果直接调用一张图片的话我们直接使用前一种方法就好了，这样直接明了，但有的时候我们需要放置在左右边栏的时候，这样我们一般都是先新建一个模板文件，然后再catalog.xml文件中声明这个块（将上面的内容稍作修改），然后就可以调用到改图片了。
+
+2 在后台设置的cms block中调用图片。我们可以使用如下代码来调用
+<img src="{{skin url='images/media/myImage.jpg'}}" />
+
+---------------------
+
+/** 
+* get Controller name 
+*/  
+$this->getRequest()->getControllerName();  
+/** 
+* get Action name, i.e. the function inside the controller 
+*/  
+$this->getRequest()->getActionName();  
+/** 
+* get module name 
+*/  
+$this->getRequest()->getModuleName();  
+getRequest()方法还有很多很实用的东西,你在phtml文件中打印下试试  
+1  
+2  
+3  
+echo “  
+";  
+print_r($this->getRequest());  
+echo "  
+“;  
+
+
+
+http://www.cnblogs.com/u0mo5/p/4615205.html
+
+ 获取后台配置项：
+ $isLocalCheckout = Mage::getStoreConfig('jeulia_checkout/checkout/enable');
+ 
+ 
+ $o =  Mage::getSingleton('core/session');
+        $o->setLastOrderUnpay($order_id);
+        $last = $o->getLastOrderUnpay(); 设置session
+
+ $o =  Mage::getSingleton('checkout/session');
+        $o->setLastOrderUnpay($order_id);
+        $last = $o->getLastOrderUnpay(); 
+		
+magento 打印sql:
+		$storeId    = Mage::app()->getStore()->getId();       
+		$products = Mage::getResourceModel('catalog/product_collection')
+			->addAttributeToSelect('*')
+			->setStoreId($storeId)
+			->addStoreFilter($storeId)
+			->setOrder('price', 'asc')
+			->addAttributeToFilter('is_bundle', '1');
+		
+			$query=$products->getSelectSql(true);
+			 $orderCollection->getSelect()->limit(1)->order('main_table.entity_id desc');
+           echo $orderCollection->getSelectSql(true);exit();
+			
+			
+			//shixiaomei_gc 2017/1/10
+$read= Mage::getSingleton('core/resource')->getConnection('core_read');
+$query = $read->query("show table status like 'sales_flat_order'");
+$row = $query->fetch();
+$order_id = $row['Auto_increment'];
+//end
+
+/*$orders = Mage::getResourceModel('sales/order_collection')
+            ->addAttributeToSelect('*')
+            //->addStoreFilter($storeId)
+            ->setOrder('price', 'asc')
+            ->addAttributeToFilter('status', 'pending');*/
+			
+邮箱模版引用变量：			
+http://webcache.googleusercontent.com/search?q=cache:http://inchoo.net/magento/magento-custom-emails/
+
+function array2object($array) {
+        if (is_array($array)) {
+            $obj = new StdClass();
+            foreach ($array as $key => $val){
+                $obj->$key = $val;
+            }
+        }
+        else { $obj = $array; }
+        return $obj;
+    }
+	
+http://inchoo.net/magento/magento-custom-emails/
+
+Sending Emails by Queue in Magento 1.9.1
+
+January 17, 2015
+My last blog post was over 6 months ago, so I think I’m technically way past due for a new post. In this post I wanted to take a tour through the new functionality in Magento 1.9.1 with regards to sending emails from your store.
+
+The astute among you will have noticed there were some changes to email in Magento 1.9.1 from the Magento 1.9.1 release notes. Two things jump out as requiring further investigation:
+
+“all Magento e-mails (including order confirmation and transactional) are now queued and sent according to your configured cron schedule”
+“boasts responsive default email templates so customers can read your order confirmation emails and newsletters on any device”
+The first change sounds worrying to me, after years of emails from merchants struggling to get their Magento store to send emails – anything which makes it _harder_ seems like a bad idea to me. However, we’ll look through the changes and see what’s new.
+
+The second change sounds really good – I was tinkering on a responsive email extension myself, so it’s pleasing to see it has already become core functionality. I’ll take a look through the template changes, and how they affect your store in the second part of this blog post series.
+
+Using cron to send Magento Emails
+
+Magento email sending all boils down to the Template class Mage_Core_Model_Email_Template, you can see below the change for queuing has been to introduce a check for an available queue in the template class, and if available to enqueue the message with all of it’s data and return immediately.
+
+if ($this->hasQueue() && $this->getQueue() instanceof Mage_Core_Model_Email_Queue) {
+    /** @var $emailQueue Mage_Core_Model_Email_Queue */
+    $emailQueue = $this->getQueue();
+    $emailQueue->setMessageBody($text);
+    $emailQueue->setMessageParameters(array(
+            'subject'           => $subject,
+            'return_path_email' => $returnPathEmail,
+            'is_plain'          => $this->isPlain(),
+            'from_email'        => $this->getSenderEmail(),
+            'from_name'         => $this->getSenderName(),
+            'reply_to'          => $this->getMail()->getReplyTo(),
+            'return_to'         => $this->getMail()->getReturnPath(),
+        ))
+        ->addRecipients($emails, $names, Mage_Core_Model_Email_Queue::EMAIL_TYPE_TO)
+        ->addRecipients($this->_bccEmails, array(), Mage_Core_Model_Email_Queue::EMAIL_TYPE_BCC);
+    $emailQueue->addMessageToQueue();
+ 
+    return true;
+}
+If there is no queue, the send() function proceeds as it used to, builds the mail object and sends it. Extensions like SMTP Pro and MageSend that hook in to the Template class to change the mail transport, will inject their transport at this point.
+
+Slight Tangent: Are all emails actually being queued?
+You might be thinking, as I was at this point, Under what circumstances will there be no queue? Good question. According to the release notes, “all Magento e-mails” are now queued, so I expect that the queue must be being set somewhere for all outbound emails. Let’s dig into this and find out.
+
+Firstly, where the queue object is instantiated with a getModel() or getSingleton() call it would be referenced by it’s handle core/email_queue. So we grep for that handle, to find the places where it is instantiated. Oddly, I only find two places where the queue is created and set on the Template object. Both are in Mage_Sales_Model_Order, functions queueNewOrderEmail() and queueOrderUpdateEmail(). So my gut feeling at this stage is I have missed some obvious place where the queue is being set for *all* other emails (ignoring the obvious question, if it’s being set for all emails, why set it explicitly here?).
+
+So, let’s try and find calls to the setQueue() method, assuming the core developers have not used a setData() – they must have called setQueue somewhere, to ensure the queue object is being used. Strangely I only find reference to Template.php and Mailer.php, both setting the queue based on what was passed to it.
+
+OK, so I’m not sure all emails are being queued, let’s ask the community to double check me and continue with our analysis.
+
+When Emails are queued…
+If the message is queued, then the email data is saved in the Magento database where it will be later fetched and an email message will be reconstructed from the data and sent. The data is stored in two new tables, one for the email data and one for the recipients:
+
+<email_queue>
+    <table>core_email_queue</table>
+</email_queue>
+<email_recipients>
+    <table>core_email_queue_recipients</table>
+</email_recipients>
+When and how is the queue cleared? For that Magento have added two new cron jobs:
+
+<core_email_queue_send_all>
+    <schedule><cron_expr>*/1 * * * *</cron_expr></schedule>
+    <run><model>core/email_queue::send</model></run>
+</core_email_queue_send_all>
+<core_email_queue_clean_up>
+    <schedule><cron_expr>0 0 * * *</cron_expr></schedule>
+    <run><model>core/email_queue::cleanQueue</model></run>
+</core_email_queue_clean_up>
+That means the send() function on the queue will be called every minute (why */1 and not just * I wonder?) and the clean up once per day at midnight 00:00.
+
+The send() function will grab a chunk of size MESSAGES_LIMIT_PER_CRON_RUN (default 100) emails data out of the DB table and send the emails one by one that have been queued since the last run. The send itself is handled in the same way the Template class does in the pre 1.9.1 code.
+
+$collection = Mage::getModel('core/email_queue')->getCollection()
+    ->addOnlyForSendingFilter()
+    ->setPageSize(self::MESSAGES_LIMIT_PER_CRON_RUN)
+    ->setCurPage(1)
+    ->load();
+A couple of things I wish the core team had done differently here. 1) to allow configuration of the rate of email sending from either the XML file or via the admin panel. It’s important for most 3rd party email sending services to control the rate of email sending to avoid being flagged as spam.
+
+And 2) to re-use the email sending functionality from the Template class – instead of basically copy-pasting the Template class sending code in the Queue. This has the effect that extensions like SMTP Pro or MageSend – or any that try to modify the passage of outbound emails – will now need an extra override, one that is totally unrelated to actual sending, just to set the transport before sending.
+
+Lastly, 3) the email queue table could also act as an email log (if all emails are sent using it) and even allow users to easily resend the emails. All of these are items I will try to address as 3rd party functionality in the next releases of SMTP Pro and MageSend.
+
+I also think it’s important to test whether cron is running as part of the self test/setup – as it’s one of the areas of Magento that often is not handled correctly. I wonder why Magento just doesn’t do an auto-cron on front end page views like WordPress, but that can be a post for another time.
+
+I hope this little tour through the new functionality helps you to understand the new email sending queue functionality in Magento 1.9.1. In the next post in this series I’ll take an in-depth look at the new responsive email templates shipped as part of Magento 1.9.1 – how they work, how you can customize them and things I’d like to see improved/changed (if any).
+
+You might also be interested in:
+
+Gmail and Google Apps 500 emails per day sending limit and Magento
+New Magento SMTP features: Email logging and email sending events
+New SMTP Pro Magento Email extension released
+Using SMTP Pro and Ebizmarts’ MailChimp extension in Magento
+New feature for Magento Gmail or Google Apps Email Extension
+In Magento, Projects, SMTP Pro Magento Extension	1.9.1, email, Magento, SES, smtp
+
+ddattributetofilter用法：
+https://fishpig.co.uk/magento/tutorials/addattributetofilter/
+
+
+  // Retrieve specified view block from appropriate design package (depends on emulated store)
+            $paymentBlock = Mage::helper('payment')->getInfoBlock($order->getPayment())
+                ->setIsSecureMode(true);
+            $paymentBlock->getMethod()->setStore($storeId);
+            $paymentBlockHtml = $paymentBlock->toHtml();
+在block对应的模版中可以调用$this->info()来获取$order->getPayment()
+
+图片调用方式：
+$productMediaConfig = Mage::getModel('catalog/product_media_config');
+                    $baseImageUrl = $productMediaConfig->getMediaUrl($_product->getImage());
+                    $smallImageUrl= $productMediaConfig->getMediaShortUrl($_product->getSmallImage())
+					
+					
+					//echo Mage::app()->getConfig()->getNode()->asXml();
+
+///print_r(Mage::app()->getLayout());
+        $layout = $this->getLayout();
+        $layout->getNode()->asXML();
+        $obj = new Zend_Controller_Router_Rewrite();
+        print_r($obj->getRoutes());
+		
+		//打印后台或者前台的路由
+		 public function testAction(){
+        $routers = array();
+        $routersConfigNode = Mage::getConfig()->getNode('admin/routers');// $routersConfigNode = Mage::getConfig()->getNode('frontend/routers')
+        if($routersConfigNode) {
+            $routers = $routersConfigNode->children();
+        }
+        Zend_Debug::dump($routers);
+    }
+
+	gc支付方式资料
+	http://www.globalcollect.com/
+	https://developer.globalcollect.com/官网
+	JavaScript browser SDK接入方式
+	
+	https://github.com/gemgento/globalcollect/blob/master/app/code/community/Gemgento/Globalcollect/Globalcollect/Model/Api.php
+	http://www.rubydoc.info/gems/global_collect/0.5.1/GlobalCollect/ApiClient.service_url
+	
+	https://github.com/thoughtworks/global_collect
+	http://www.hostedpci.com/checkout-web-services-api-guide/
+	https://diadikasies.gr/extensions/DonationInterface/tests/Adapter/GlobalCollect/
+	https://lists.gt.net/wiki/mediawiki-cvs/515019
+	
+	注册变量
+	
+	  Mage::register('subscription', $product);
+        Mage::register('current_subscription', $product);
+		
+		获取变量：
+		 Mage::registry('current_subscription')
+		 
+		 
+		 
+		 Magento 自学网站
+		 https://www.tutorialspoint.com/magento/index.htm
+		 
+		 http://magento.example.com/?showConfig=true<?php
+    class Magentotutorial_Configviewer_Model_Observer {
+        const FLAG_SHOW_CONFIG = 'showConfig';
+        const FLAG_SHOW_CONFIG_FORMAT = 'showConfigFormat';
+
+        private $request;
+
+        public function checkForConfigRequest($observer) {
+            $this->request = $observer->getEvent()->getData('front')->getRequest();
+            if($this->request->{self::FLAG_SHOW_CONFIG} === 'true'){
+                $this->setHeader();
+                $this->outputConfig();
+            }
+        }
+
+        private function setHeader() {
+            $format = isset($this->request->{self::FLAG_SHOW_CONFIG_FORMAT}) ?
+            $this->request->{self::FLAG_SHOW_CONFIG_FORMAT} : 'xml';
+            switch($format){
+                case 'text':
+                    header("Content-Type: text/plain");
+                    break;
+                default:
+                    header("Content-Type: text/xml");
+            }
+        }
+
+        private function outputConfig() {
+            die(Mage::app()->getConfig()->getNode()->asXML());
+        }
+    }
+That's it. Clear your Magento cache again and then load any Magento URL with a showConfig=true query string
+
+http://magento.example.com/?showConfig=true
+
+
+http://devdocs.magento.com/guides/m1x/magefordev/mage-for-dev-2.html#1学习网站
+http://devdocs.magento.com/guides/v2.0/extension-dev-guide/events-and-observers.html
+
+
+https://magento.com/events
+	
+        
