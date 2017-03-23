@@ -557,5 +557,10 @@ green0308
 参考站（刘祥推荐）
 www.schonekleider.de
 
+magento1.9手册
+https://magento2.atlassian.net/wiki/display/m1wiki/getUrl()+Function+Parameters
+
+PHP调优配置
+http://www.cnblogs.com/riverdubu/p/6431563.html
 
 
