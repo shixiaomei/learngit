@@ -562,5 +562,13 @@ https://magento2.atlassian.net/wiki/display/m1wiki/getUrl()+Function+Parameters
 
 PHP调优配置
 http://www.cnblogs.com/riverdubu/p/6431563.html
+技术思想：
+http://book.phpchina.com/index.php?r=book/read-full&book_id=66
+https://www.shoesofprey.com/
+
+ERP的后台账号：
+
+admin
+111111
 
 
