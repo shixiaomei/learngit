@@ -126,6 +126,11 @@ git grep -e '#define' --and -e SORT_DIRENT
 git gc
 git fsck
 
+命令找到要回退的版本的commit id：
+git reflog 
+强制推送到远程分支
+git push -f
+
 git回退版本的命令：git reset --hard 'sha1' 例如：git reset --hard '4564829827016242ede4149dd84473dd2c9dad4c'或者git reset --hard 4564829827016242ede4149dd84473dd2c9dad4c
 git 对比工具配置：
 [diff]
