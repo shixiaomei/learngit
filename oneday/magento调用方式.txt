@@ -301,5 +301,9 @@ http://devdocs.magento.com/guides/v2.0/extension-dev-guide/events-and-observers.
 
 
 https://magento.com/events
+
+移动端首页广告的后台配置：
+cms_block mobile_home_categories
+
 	
         

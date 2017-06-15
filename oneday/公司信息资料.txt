@@ -235,13 +235,18 @@ jeuliacoza2016
 jeuliacoza2016
 
 已经关的ERP：
-http://sandbox.jeulia.co.uk/
-http://sandbox.jeulia.co.za/
-http://sandbox.amarley.com/
-http://sandbox.jeulia.com/
-http://sandbox.jeulia.ae/
-http://sandbox.jeulia.it/
-http://sandbox.jeulia.cl/
+http://sandbox.jeulia.co.uk/  英国
+http://sandbox.jeulia.co.za/  南非
+http://sandbox.jeulia.co.nz/  新西兰
+http://sandbox.amarley.com/    
+http://sandbox.jeulia.com/    美国
+http://sandbox.jeulia.ae/     阿拉伯
+http://sandbox.jeulia.it/     意大利
+http://sandbox.jeulia.cl/     智利    
+http://sandbox.gnoce.com/    
+http://sandbox.jeulia.com.au/ 澳大利亚
+http://sandbox.jeulia.fr/     法国
+
 http://www.gnoce.com/
 
 
@@ -574,5 +579,46 @@ mysqlsql
 http://www.trueeyu.com/2016/06/28/mysql-count/
 
 http://blog.csdn.net/gzgengzhen/article/details/53669688
+
+http://wetest.qq.com/lab/view/300.html?from=adsout_qqtips_past2_300&sessionUserType=BFT.PARAMS.215452.TASKID&ADUIN=404599132&ADSESSION=1490852122&ADTAG=CLIENT.QQ.5503_.0&ADPUBNO=26660
+
+网站404以后如有遇到，请用新地址添加白名单：http://sandbox.jeulia.com/firewall/index.html
+
+
+ckbipqherigldjea
+
+新IP
+\\192.168.5.5\
+
+学习网站http://www.ruanyifeng.com/blog/2017/04/css_in_js.html
+
+php注释规范
+https://www.phpdoc.org/docs/latest/index.html
+https://github.com/overtrue/tools/blob/master/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/php%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83.md
+
+
+http://content.infotrustllc.com/how-to-setup-enhanced-ecommerce-impressions-the-right-way-using-scroll-tracking/
+
+测试订单号：100265410
+
+sendgrid那个账号jeuliaus的密码是jeulia1056
+
+刘翔管理的分站：
+http://sandbox.jeulia.co.uk/  
+http://sandbox.jeulia.co.za/  
+http://sandbox.jeulia.ae/     
+http://sandbox.jeulia.com.au/ 
+
+路崧管理的分站：
+http://sandbox.jeulia.co.nz/  
+http://sandbox.amarley.com/  
+http://sandbox.jeulia.it/    
+http://sandbox.jeulia.cl/ 
+
+马少青管理的分站：
+http://sandbox.gnoce.com/ 
+
+张昭管理的主站：
+http://sandbox.jeulia.com/
 
 
